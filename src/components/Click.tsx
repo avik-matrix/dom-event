@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 
 const Click = () => {
-  const [eventLog, setEventLog] = useState([]);
+  const [eventLog, setEventLog] = useState<string[]>([]);
 
-  const logEvent = (eventType) => {
+  const logEvent = (eventType: string) => {
     const logMessage = `${eventType} event triggered`;
     console.log(logMessage);
     setEventLog((prevLogs) => [logMessage, ...prevLogs.slice(0, 4)]);
   };
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       logEvent(`Keydown: ${event.key}`);
     };
 
@@ -22,7 +22,7 @@ const Click = () => {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-screen bg-gray-100"
+      className="flex flex-col items-center justify-center min-h-screen"
     >
       <button
         className="px-6 py-3 bg-blue-500 text-white font-bold rounded-lg shadow-md hover:bg-blue-600 active:bg-blue-700 focus:outline-none"
